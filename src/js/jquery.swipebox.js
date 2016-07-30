@@ -24,7 +24,9 @@
 				loopAtEnd: false,
 				autoplayVideos: false,
 				queryStringData: {},
-				toggleClassOnLoad: ''
+				toggleClassOnLoad: '',
+				fadeInDuration: 100,
+				fadeOutDuration: 200
 			},
 
 			plugin = this,
@@ -198,6 +200,7 @@
 				$this.animBars();
 				$this.resize();
 
+				$("#swipebox-overlay").fadeIn(plugin.settings.fadeInDuration);
 			},
 
 			/**
@@ -909,11 +912,15 @@
 			 * Close
 			 */
 			closeSlide : function () {
-				$( 'html' ).removeClass( 'swipebox-html' );
-				$( 'html' ).removeClass( 'swipebox-touch' );
-				$( window ).trigger( 'resize' );
-				this.destroy();
+				var $this = this;
+				$( '#swipebox-overlay' ).fadeOut(plugin.settings.fadeOutDuration, function() { 
+					$( 'html' ).removeClass( 'swipebox-html' );
+					$( 'html' ).removeClass( 'swipebox-touch' );
+					$( window ).trigger( 'resize' );
+					$this.destroy();
+				});
 			},
+
 
 			/**
 			 * Destroy the whole thing
