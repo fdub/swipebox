@@ -30,9 +30,7 @@ html.swipebox-html.swipebox-touch {
 
 #swipebox-slider {
   -webkit-transition: -webkit-transform 0.4s ease;
-  transition: -webkit-transform 0.4s ease;
-  transition: transform 0.4s ease;
-  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+          transition: transform 0.4s ease;
   height: 100%;
   left: 0;
   top: 0;
@@ -74,7 +72,8 @@ html.swipebox-html.swipebox-touch {
   max-height: 100%;
   width: 100%;
   padding: 5%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 #swipebox-slider .slide .swipebox-video-container .swipebox-video {
   width: 100%;
@@ -97,7 +96,7 @@ html.swipebox-html.swipebox-touch {
 #swipebox-bottom-bar,
 #swipebox-top-bar {
   -webkit-transition: 0.5s;
-  transition: 0.5s;
+          transition: 0.5s;
   position: absolute;
   left: 0;
   z-index: 999;
@@ -187,7 +186,7 @@ html.swipebox-html.swipebox-touch {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-transition: all .3s ease;
-  transition: all .3s ease;
+          transition: all .3s ease;
   content: ' ';
   position: absolute;
   z-index: 999;
@@ -198,11 +197,13 @@ html.swipebox-html.swipebox-touch {
 }
 .swipebox-touch #swipebox-container:before {
   left: 0;
-  box-shadow: inset 10px 0px 10px -8px #656565;
+  -webkit-box-shadow: inset 10px 0px 10px -8px #656565;
+          box-shadow: inset 10px 0px 10px -8px #656565;
 }
 .swipebox-touch #swipebox-container:after {
   right: 0;
-  box-shadow: inset -10px 0px 10px -8px #656565;
+  -webkit-box-shadow: inset -10px 0px 10px -8px #656565;
+          box-shadow: inset -10px 0px 10px -8px #656565;
 }
 .swipebox-touch #swipebox-overlay.leftSpringTouch #swipebox-container:before {
   opacity: 1;

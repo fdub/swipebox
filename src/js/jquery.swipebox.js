@@ -200,7 +200,7 @@
 				$this.animBars();
 				$this.resize();
 
-				$("#swipebox-overlay").fadeIn(plugin.settings.fadeInDuration);
+				$('#swipebox-overlay').fadeIn(plugin.settings.fadeInDuration);
 			},
 
 			/**
