@@ -26,7 +26,8 @@
 				queryStringData: {},
 				toggleClassOnLoad: '',
 				fadeInDuration: 100,
-				fadeOutDuration: 200
+				fadeOutDuration: 200,
+				closeWhenExceedingBoundaries: false
 			},
 
 			plugin = this,
@@ -869,10 +870,17 @@
 							plugin.settings.nextSlide(index);
 						}
 					} else {
-						$( '#swipebox-overlay' ).addClass( 'rightSpring' );
-						setTimeout( function() {
-							$( '#swipebox-overlay' ).removeClass( 'rightSpring' );
-						}, 500 );
+						if (plugin.settings.closeWhenExceedingBoundaries) {
+							$this.setSlide( index - 1 );
+							setTimeout( function() {
+								$this.closeSlide();
+							}, 150);
+						} else {
+							$( '#swipebox-overlay' ).addClass( 'rightSpring' );
+							setTimeout( function() {
+								$( '#swipebox-overlay' ).removeClass( 'rightSpring' );
+							}, 500 );
+						}
 					}
 				}
 			},
@@ -882,7 +890,8 @@
 			 */
 			getPrev : function () {
 				var index = $( '#swipebox-slider .slide' ).index( $( '#swipebox-slider .slide.current' ) ),
-					src;
+					src,
+					$this = this;
 				if ( index > 0 ) {
 					src = $( '#swipebox-slider .slide' ).eq( index ).contents().find( 'iframe').attr( 'src' );
 					$( '#swipebox-slider .slide' ).eq( index ).contents().find( 'iframe' ).attr( 'src', src );
@@ -893,10 +902,17 @@
 						plugin.settings.prevSlide(index);
 					}
 				} else {
-					$( '#swipebox-overlay' ).addClass( 'leftSpring' );
-					setTimeout( function() {
-						$( '#swipebox-overlay' ).removeClass( 'leftSpring' );
-					}, 500 );
+					if (plugin.settings.closeWhenExceedingBoundaries) {
+						$this.setSlide( index - 1 );
+						setTimeout( function() {
+							$this.closeSlide();
+						}, 150);
+					} else {					
+						$( '#swipebox-overlay' ).addClass( 'leftSpring' );
+						setTimeout( function() {
+							$( '#swipebox-overlay' ).removeClass( 'leftSpring' );
+						}, 500 );
+					}
 				}
 			},
 			/* jshint unused:false */
