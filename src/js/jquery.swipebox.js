@@ -871,7 +871,7 @@
 						}
 					} else {
 						if (plugin.settings.closeWhenExceedingBoundaries) {
-							$this.setSlide( index - 1 );
+							$this.setSlide( index + 1 );
 							setTimeout( function() {
 								$this.closeSlide();
 							}, 150);
