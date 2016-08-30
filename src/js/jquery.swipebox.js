@@ -27,7 +27,8 @@
 				toggleClassOnLoad: '',
 				fadeInDuration: 100,
 				fadeOutDuration: 200,
-				closeWhenExceedingBoundaries: false
+				closeWhenExceedingBoundaries: false,
+				enableDotsNav: false
 			},
 
 			plugin = this,
@@ -47,6 +48,7 @@
 						<div id="swipebox-top-bar">\
 							<div id="swipebox-title"></div>\
 						</div>\
+						<div id="swipebox-dots-nav"></div>\
 						<div id="swipebox-bottom-bar">\
 							<div id="swipebox-arrows">\
 								<a id="swipebox-prev"></a>\
@@ -171,6 +173,15 @@
 				var $this = this, bg;
 
 				$( 'body' ).append( html );
+				if ( plugin.settings.enableDotsNav === true) {
+					var $nav = $('#swipebox-dots-nav');
+					$(elements).each(function(index) {
+						$nav.append('<div class="swipebox-dot" data-swipe-index="' + index + '"></div>');
+					});
+
+				} else {
+					$('#swipebox-dots-nav').css('visibility', 'hidden');
+				}
 
 				if ( supportSVG && plugin.settings.useSVG === true ) {
 					bg = $( '#swipebox-close' ).css( 'background-image' );
@@ -627,6 +638,11 @@
 					$( '#swipebox-prev' ).addClass( 'disabled' );
 				} else if ( index === elements.length - 1 && plugin.settings.loopAtEnd !== true ) {
 					$( '#swipebox-next' ).addClass( 'disabled' );
+				}
+
+				if ( plugin.settings.enableDotsNav === true ) {
+					$( '.swipebox-dot').removeClass('swipebox-dot-active');
+					$( '.swipebox-dot[data-swipe-index="' + index + '"]').addClass('swipebox-dot-active');
 				}
 			},
 

@@ -212,15 +212,25 @@ html.swipebox-html.swipebox-touch {
   opacity: 1;
 }
 
+#swipebox-dots-nav .swipebox-dot {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  background: transparent;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+}
+#swipebox-dots-nav .swipebox-dot-active {
+  background: #aaa;
+}
+
 @-webkit-keyframes rightSpring {
   0% {
     left: 0;
   }
-
   50% {
     left: -30px;
   }
-
   100% {
     left: 0;
   }
@@ -230,44 +240,35 @@ html.swipebox-html.swipebox-touch {
   0% {
     left: 0;
   }
-
   50% {
     left: -30px;
   }
-
   100% {
     left: 0;
   }
 }
-
 @-webkit-keyframes leftSpring {
   0% {
     left: 0;
   }
-
   50% {
     left: 30px;
   }
-
   100% {
     left: 0;
   }
 }
-
 @keyframes leftSpring {
   0% {
     left: 0;
   }
-
   50% {
     left: 30px;
   }
-
   100% {
     left: 0;
   }
 }
-
 @media screen and (min-width: 800px) {
   #swipebox-close {
     right: 10px;

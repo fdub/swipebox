@@ -242,6 +242,20 @@ html.swipebox-html.swipebox-touch {
 	}
 }
 
+#swipebox-dots-nav {
+	.swipebox-dot {
+		width: 8px;
+		height: 8px;
+		display: inline-block;
+		background: transparent;
+		border: 2px solid #ccc;
+		border-radius: 50%;
+	}
+	.swipebox-dot-active {
+		background: #aaa;
+	}
+}
+
 @keyframes rightSpring {
 	0% {
 		left:0;

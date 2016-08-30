@@ -152,7 +152,7 @@
 <pre>&lt;script type="text/javascript"&gt;
 ;( function( $ ) {
 
-	$( '.swipebox' ).swipebox();
+	$( '.swipebox' ).swipebox({ enableDotsNav: true });
 
 } )( jQuery );
 &lt;/script&gt;
@@ -254,10 +254,10 @@ $( '#gallery' ).click( function( e ) {
 	$( document ).ready(function() {
 
 			/* Basic Gallery */
-			$( '.swipebox' ).swipebox();
+			$( '.swipebox' ).swipebox({enableDotsNav: true});
 			
 			/* Video */
-			$( '.swipebox-video' ).swipebox();
+			$( '.swipebox-video' ).swipebox({enableDotsNav: true});
 
 			/* Dynamic Gallery */
 			$( '#gallery' ).click( function( e ) {
@@ -265,7 +265,7 @@ $( '#gallery' ).click( function( e ) {
 				$.swipebox( [
 					{ href : 'http://swipebox.csag.co/mages/image-1.jpg', title : 'My Caption' },
 					{ href : 'http://swipebox.csag.co/images/image-2.jpg', title : 'My Second Caption' }
-				] );
+				], {enableDotsNav: true} );
 			} );
 
       });
