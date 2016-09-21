@@ -248,27 +248,35 @@ $( '#gallery' ).click( function( e ) {
 		</div>
 	</footer>
 	<script src="lib/ios-orientationchange-fix.js"></script>
-	<script src="lib/jquery-2.1.0.min.js"></script>
-	<script src="src/js/jquery.swipebox.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.1/require.min.js"></script>
 	<script type="text/javascript">
-	$( document ).ready(function() {
+		require.config({
+			paths: {
+				jquery: 'lib/jquery-2.1.0.min', 
+				swipebox: 'src/js/jquery.swipebox'
+			}
+		});
+	</script>
+	<script type="text/javascript">
+		require(['jquery', 'swipebox'], function($, swipebox){
+			$( document ).ready(function() {
 
-			/* Basic Gallery */
-			$( '.swipebox' ).swipebox({enableDotsNav: true});
-			
-			/* Video */
-			$( '.swipebox-video' ).swipebox({enableDotsNav: true});
+					/* Basic Gallery */
+					$( '.swipebox' ).swipebox({enableDotsNav: true});
+					
+					/* Video */
+					$( '.swipebox-video' ).swipebox({enableDotsNav: true});
 
-			/* Dynamic Gallery */
-			$( '#gallery' ).click( function( e ) {
-				e.preventDefault();
-				$.swipebox( [
-					{ href : 'http://swipebox.csag.co/mages/image-1.jpg', title : 'My Caption' },
-					{ href : 'http://swipebox.csag.co/images/image-2.jpg', title : 'My Second Caption' }
-				], {enableDotsNav: true} );
-			} );
-
-      });
+					/* Dynamic Gallery */
+					$( '#gallery' ).click( function( e ) {
+						e.preventDefault();
+						$.swipebox( [
+							{ href : 'http://swipebox.csag.co/mages/image-1.jpg', title : 'My Caption' },
+							{ href : 'http://swipebox.csag.co/images/image-2.jpg', title : 'My Second Caption' }
+						], {enableDotsNav: true} );
+					} );
+			});
+		});
 	</script>
 </body>
 	
